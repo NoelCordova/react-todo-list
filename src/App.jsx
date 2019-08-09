@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import NewTodoForm from './components/NewTodo/NewTodo';
-import TodoElement from './components/TodoElement/TodoElement';
+import TodosList from './components/TodosList/TodosList';
 
 export default class App extends Component {
   state = {
@@ -41,24 +41,11 @@ export default class App extends Component {
         <NewTodoForm
           newTodoValue={this.state.newTodo}
           onSubmit={this.handleSubmitNewTodo}
-          onChange={this.handleChangeNewTodo}>
+          onChange={this.handleChangeNewTodo}
+          emptyInput={this.emptyNewTodo()}>
         </NewTodoForm>
 
-        {
-         this.emptyNewTodo() &&
-          <p>Vacío</p>
-        }
-
-        <ul>
-          {
-            this.state.todos.map((todo, i) => {
-              return  <TodoElement
-                        key={i}
-                        todo={todo}>
-                      </TodoElement>
-            })
-          }
-        </ul>
+        <TodosList todosList={this.state.todos}></TodosList>
       </Fragment>
     );
   };

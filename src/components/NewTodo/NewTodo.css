@@ -1,0 +1,44 @@
+.newForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.newForm__input-element {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding-left: 2vw;
+}
+
+.newForm__input-element
+label {
+  font-weight: bold;
+}
+
+.newForm__input-element
+input {
+  margin-left: 5vw;
+  width: 30vw;
+}
+
+.newForm__input-element
+p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 12px;
+  margin-left: 5vw;
+  color: red;
+}
+
+.submitBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.submitBtn
+button {
+  width: 60vw;
+}
