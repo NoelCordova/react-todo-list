@@ -31,6 +31,22 @@ export default class App extends Component {
     }
   };
 
+  handleToggleTodo = (event, index) => {
+    let todos = [...this.state.todos];
+    todos[index] = {...todos[index],
+      done: event.target.checked
+    };
+
+    this.setState({ todos });
+  };
+
+  removeTodo = (index) => {
+    let todos = [...this.state.todos];
+    todos.splice(index, 1);
+
+    this.setState({ todos });
+  }
+
   emptyNewTodo = () => this.state.newTodo === '';
 
   render() {
@@ -42,10 +58,14 @@ export default class App extends Component {
           newTodoValue={this.state.newTodo}
           onSubmit={this.handleSubmitNewTodo}
           onChange={this.handleChangeNewTodo}
-          emptyInput={this.emptyNewTodo()}>
+          emptyInput={this.emptyNewTodo}>
         </NewTodoForm>
 
-        <TodosList todosList={this.state.todos}></TodosList>
+        <TodosList
+          todosList={this.state.todos}
+          onChange={this.handleToggleTodo}
+          btnOnClick={this.removeTodo}>
+        </TodosList>
       </Fragment>
     );
   };
