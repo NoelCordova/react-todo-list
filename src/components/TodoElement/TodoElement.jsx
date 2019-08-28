@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class TodoElement extends Component {
-  render() {
-    return(
-      <li>
-        <input
-          type="checkbox"
-          onChange={this.props.onChange} />
-          
-        <span style={{
-          textDecoration: this.props.todoElement.done ? 'line-through' : 'inherit'
-          }}>
-          {this.props.todoElement.title}
-        </span>
+const TodoElement = (props) => {
+  return(
+    <li>
+      <input
+        type="checkbox"
+        onChange={props.onChange} />
+        
+      <span style={{
+        textDecoration: props.todoElement.done ? 'line-through' : 'inherit'
+        }}>
+        {props.todoElement.title}
+      </span>
 
-        <button onClick={this.props.btnOnClick}>Remove</button>
-      </li>
-    );
-  };
-}
+      <button onClick={props.btnOnClick}>Remove</button>
+    </li>
+  );
+};
+
+export default TodoElement;
